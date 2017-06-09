@@ -24,7 +24,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
@@ -50,8 +50,8 @@ public class SampleTomcatApplication extends SpringBootServletInitializer {
 	}
 
 	@Bean
-    public ServletRegistrationBean<HelloServlet> servletRegistrationBean() {
-        return new ServletRegistrationBean<HelloServlet>(new HelloServlet(), "/simple_servlet");// ServletName默认值为首字母小写，即myServlet
+    public ServletRegistrationBean servletRegistrationBean() {
+        return new ServletRegistrationBean(new HelloServlet(), "/simple_servlet");// ServletName默认值为首字母小写，即myServlet
     }
 	
 	public static void main(String[] args) throws Exception {
