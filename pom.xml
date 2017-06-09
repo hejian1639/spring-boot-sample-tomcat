@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.springframework.boot</groupId>
-	<version>2.0.0.BUILD-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<artifactId>spring-boot-sample-tomcat</artifactId>
 	<packaging>war</packaging>
 	<name>Spring Boot Tomcat Sample</name>
@@ -17,7 +17,8 @@
 		<main.basedir>${basedir}</main.basedir>
 		<m2eclipse.wtp.contextRoot>/</m2eclipse.wtp.contextRoot>
 		<java.version>1.7</java.version>
-		
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<!-- Compile -->

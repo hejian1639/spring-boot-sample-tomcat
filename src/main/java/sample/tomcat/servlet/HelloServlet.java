@@ -1,4 +1,4 @@
-package sample.tomcat;
+package sample.tomcat.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;

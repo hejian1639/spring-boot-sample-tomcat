@@ -16,7 +16,6 @@
 
 package sample.tomcat;
 
-import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import org.apache.commons.logging.Log;
@@ -27,6 +26,9 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 
+import sample.tomcat.servlet.ContextStartListener;
+import sample.tomcat.servlet.HelloServlet;
+
 @SpringBootApplication
 public class SampleTomcatApplication extends SpringBootServletInitializer {
 
@@ -34,19 +36,7 @@ public class SampleTomcatApplication extends SpringBootServletInitializer {
 
 	@Bean
 	protected ServletContextListener listener() {
-		return new ServletContextListener() {
-
-			@Override
-			public void contextInitialized(ServletContextEvent sce) {
-				logger.info("ServletContext initialized");
-			}
-
-			@Override
-			public void contextDestroyed(ServletContextEvent sce) {
-				logger.info("ServletContext destroyed");
-			}
-
-		};
+		return new ContextStartListener();
 	}
 
 	@Bean
