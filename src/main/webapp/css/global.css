@@ -1,0 +1,78 @@
+﻿body 
+{
+}
+
+#wrapper {
+    width: 100%;
+}
+#header
+{
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: auto;
+    background: #f0f0f0;
+    padding:20px 7% 20px 7%;
+    z-index:1000;
+    }
+#header_left
+{
+    list-style:none;
+    padding:0;
+    }
+#header_left li
+{
+    margin-right:3%;
+    float:left;
+    }
+#header_left li.cart
+{   
+    float:right;
+    margin-right:2%;
+    }
+#header_left li.order
+{   
+    float:right;
+    margin-right:2%;
+    }
+#header_left li.logout
+{   
+    float:right;
+    margin-right:0;
+    margin-top:3px;
+    }
+#header_left li.home
+{   
+    float:left;
+    margin-right:1%;
+    }
+#header_left li.normal
+{
+    margin-right:3%;
+    margin-top:3px;
+    float:left;
+    }
+img
+{
+    border:0;
+    vertical-align:middle;
+    }
+a:focus
+{
+    outline:none;
+    }
+
+h1
+{
+	font-size:25px;
+    }
+    
+@media screen and (max-width: 1366px) 
+{
+	h1
+	{
+	    font-size:20px;
+	    font-weight:bold;
+	    }
+}

@@ -16,33 +16,23 @@
 
 package sample.tomcat;
 
-import javax.servlet.ServletContextListener;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.Bean;
-
-import sample.tomcat.servlet.ContextStartListener;
-import sample.tomcat.servlet.HelloServlet;
 
 @SpringBootApplication
 public class SampleTomcatApplication extends SpringBootServletInitializer {
 
-	private static Log logger = LogFactory.getLog(SampleTomcatApplication.class);
 
-	@Bean
-	protected ServletContextListener listener() {
-		return new ContextStartListener();
-	}
-
-	@Bean
-    public ServletRegistrationBean servletRegistrationBean() {
-        return new ServletRegistrationBean(new HelloServlet(), "/simple_servlet");// ServletName默认值为首字母小写，即myServlet
-    }
+//	@Bean
+//	protected ServletContextListener listener() {
+//		return new ContextStartListener();
+//	}
+//
+//	@Bean
+//    public ServletRegistrationBean servletRegistrationBean() {
+//        return new ServletRegistrationBean(new HelloServlet(), "/simple_servlet");// ServletName默认值为首字母小写，即myServlet
+//    }
 	
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(SampleTomcatApplication.class, args);

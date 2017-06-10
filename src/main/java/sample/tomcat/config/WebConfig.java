@@ -16,138 +16,75 @@
 
 package sample.tomcat.config;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.servlet.ServletContextListener;
+
+import org.apache.catalina.servlets.DefaultServlet;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.format.FormatterRegistry;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.validation.MessageCodesResolver;
-import org.springframework.validation.Validator;
-import org.springframework.web.method.support.HandlerMethodArgumentResolver;
-import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
-import org.springframework.web.servlet.DispatcherServlet;
-import org.springframework.web.servlet.HandlerExceptionResolver;
-import org.springframework.web.servlet.config.annotation.AsyncSupportConfigurer;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import sample.tomcat.servlet.ContextStartListener;
+import sample.tomcat.servlet.HelloServlet;
 
 @EnableWebMvc
 @ComponentScan(basePackages = { "sample.tomcat.web" })
 @Configuration
-public class WebConfig implements WebMvcConfigurer {
+public class WebConfig extends WebMvcConfigurationSupport {
 
-	@Override
-	public void addViewControllers(ViewControllerRegistry registry) {
-		// registry.addViewController("/").setViewName("home");
+	@Bean
+	protected ServletContextListener listener() {
+		return new ContextStartListener();
 	}
+
+	@Bean
+	public ServletRegistrationBean simpleServlet() {
+		return new ServletRegistrationBean(new HelloServlet(), "/simple_servlet");// ServletName默认值为首字母小写，即myServlet
+	}
+
+	@Bean
+	public ServletRegistrationBean defaultServlet() {
+		ServletRegistrationBean registration = new ServletRegistrationBean(new DefaultServlet(), "*.gif", "*.ttf",
+				"*.gif", "*.woff", "*.svg", "*.js", "*.jpg", "*.html", "*.css", "*.png", "*.mp4", "*.m4a", "*.ogg");
+		registration.setLoadOnStartup(1);
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("debug", "0");
+		params.put("listings", "false");
+		registration.setInitParameters(params);
+		return registration;
+		// return new ServletRegistrationBean(new DefaultServlet(), "*.gif",
+		// "*.ttf","*.gif","*.woff","*.svg","*.js","*.jpg","*.html","*.css","*.png","*.mp4","*.m4a","*.ogg");//
+		// ServletName默认值为首字母小写，即myServlet
+	}
+
+//	@Override
+//	public void addViewControllers(ViewControllerRegistry registry) {
+//		// registry.addViewController("/").setViewName("home");
+//	}
 
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setPrefix("/");
-		// viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
 
-	@Bean
-	// Only used when running in embedded servlet
-	public DispatcherServlet dispatcherServlet() {
-		return new DispatcherServlet();
-	}
+//	@Bean
+//	// Only used when running in embedded servlet
+//	public DispatcherServlet dispatcherServlet() {
+//		return new DispatcherServlet();
+//	}
+//
+//	@Override
+//	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+//		configurer.enable();
+//	}
+//
 
-	@Override
-	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-		configurer.enable();
-	}
-
-	public void configurePathMatch(PathMatchConfigurer configurer) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void addFormatters(FormatterRegistry registry) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void addInterceptors(InterceptorRegistry registry) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void addCorsMappings(CorsRegistry registry) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void configureViewResolvers(ViewResolverRegistry registry) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> returnValueHandlers) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public Validator getValidator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public MessageCodesResolver getMessageCodesResolver() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

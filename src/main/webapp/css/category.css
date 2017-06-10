@@ -1,0 +1,341 @@
+﻿body {
+}
+
+.title
+{
+    padding:90px 7% 10px 7%;
+    width:100%;
+    height:auto;
+    }
+.category_ul
+{
+    list-style:none;
+    padding:0;
+    }
+.category_ul li
+{
+    margin-right:1%;
+    margin-bottom:15px;
+    float:left;
+    color:#999999;
+    }
+.category_ul li.c_title
+{
+    margin-right:1%;
+    float:left;
+    white-space:nowrap;
+    -o-text-overflow:ellipsis;
+    text-overflow:ellipsis; 
+    display:block; 
+    overflow:hidden;
+    width:80px; 
+    }
+.category_ul li.c_title a
+{
+    color:#999999;
+    text-decoration:none;
+    }
+.category_ul li.c_title a:hover
+{
+    color:#f22e5c;
+    text-decoration:none;
+    }
+.category_ul li.c_title a.active
+{
+    color:#f22e5c;
+    text-decoration:none;
+    }
+.line
+{
+    padding:0 7% 10px 7%;
+    width:100%;
+    height:auto;
+    }
+.hr{
+    border-top:1px solid #999999;
+    }
+.content
+{
+    padding:10px 8% 10px 8%;
+    width:100%;
+    height:auto;
+    }
+.imgList_category
+{
+    list-style:none;
+    float:left;
+    padding:0;
+    }    
+.imgList_category li{
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+.imgList_category li span{
+	padding-top:10px;
+	display: block;
+	text-align: center;
+	color: #000000;
+}
+.imgList_category li div{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+.category_img{
+	border:0;
+}
+.category_a{
+	cursor:pointer;
+}
+.cuttitle{
+	display: block; 
+	width: 295px; 
+	overflow: hidden; 
+	white-space: nowrap; 
+	-o-text-overflow: ellipsis; 
+	text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 1890px) 
+{
+    .category_img{
+    	border:0;
+        max-width:275px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 275px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
+
+@media screen and (max-width: 1775px) 
+{
+    .category_img{
+    	border:0;
+        max-width:255px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 255px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
+
+@media screen and (max-width: 1655px) 
+{
+    .category_img{
+    	border:0;
+        max-width:235px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 235px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
+
+@media screen and (max-width: 1535px) 
+{
+    .category_img{
+    	border:0;
+        max-width:295px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 295px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
+
+
+@media screen and (max-width: 1515px) 
+{
+    .category_img{
+    	border:0;
+        max-width:275px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 275px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
+
+
+@media screen and (max-width: 1420px) 
+{
+    .category_img{
+    	border:0;
+        max-width:265px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 265px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
+
+@media screen and (max-width: 1375px) 
+{
+    .category_img{
+    	border:0;
+        max-width:245px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 245px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
+
+@media screen and (max-width: 1280px) 
+{
+    .category_img{
+    	border:0;
+        max-width:225px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 225px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
+
+@media screen and (max-width: 1185px) 
+{
+    .category_img{
+    	border:0;
+        max-width:295px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 295px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
+
+@media screen and (max-width: 1142px) 
+{
+    .category_img{
+    	border:0;
+        max-width:275px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 275px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
+
+@media screen and (max-width: 1070px) 
+{
+    .category_img{
+    	border:0;
+        max-width:255px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 255px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
+
+@media screen and (max-width: 1000px) 
+{
+    .category_img{
+    	border:0;
+        max-width:235px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 235px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
+
+@media screen and (max-width: 930px) 
+{
+    .category_img{
+    	border:0;
+        max-width:215px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 215px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
+
+@media screen and (max-width: 857px) 
+{
+    .category_img{
+    	border:0;
+        max-width:295px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 295px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
+
+@media screen and (max-width: 768px) 
+{
+    .category_img{
+    	border:0;
+        max-width:275px;
+    }
+    .cuttitle{
+    	display: block; 
+	    width: 275px; 
+	    overflow: hidden; 
+	    white-space: nowrap; 
+	    -o-text-overflow: ellipsis; 
+	    text-overflow: ellipsis;
+    }
+}
