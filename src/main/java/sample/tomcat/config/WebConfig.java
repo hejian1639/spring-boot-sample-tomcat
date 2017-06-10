@@ -32,6 +32,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import sample.tomcat.servlet.ContextStartListener;
+import sample.tomcat.servlet.DynamicJSP;
 import sample.tomcat.servlet.HelloServlet;
 import sample.tomcat.servlet.HttpSessionFilter;
 import sample.tomcat.servlet.MyDefaultServlet;
@@ -56,10 +57,10 @@ public class WebConfig extends WebMvcConfigurationSupport {
 		return new ServletRegistrationBean(new MyDefaultServlet(), "/default/*");
 	}
 
-//	@Bean
-//	public ServletRegistrationBean dynamicJSP() {
-//		return new ServletRegistrationBean(new DynamicJSP(), "/jsp");
-//	}
+	@Bean
+	public ServletRegistrationBean dynamicJSP() {
+		return new ServletRegistrationBean(new DynamicJSP(), "/jsp");
+	}
 	
 	@Bean
 	public ServletRegistrationBean defaultServlet() {

@@ -35,6 +35,7 @@ public class SampleTomcatApplication extends SpringBootServletInitializer {
 //    }
 	
 	public static void main(String[] args) throws Exception {
+//		System.setProperty("JAVA_HOME", "C:\\Program Files\\Java\\jdk1.8.0_121");
 		SpringApplication.run(SampleTomcatApplication.class, args);
 	}
 
