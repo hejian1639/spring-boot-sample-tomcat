@@ -22,6 +22,7 @@ import java.util.Map;
 import javax.servlet.ServletContextListener;
 
 import org.apache.catalina.servlets.DefaultServlet;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -32,6 +33,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import sample.tomcat.servlet.ContextStartListener;
 import sample.tomcat.servlet.HelloServlet;
+import sample.tomcat.servlet.HttpSessionFilter;
+import sample.tomcat.servlet.MyDefaultServlet;
 
 @EnableWebMvc
 @ComponentScan(basePackages = { "sample.tomcat.web" })
@@ -45,9 +48,19 @@ public class WebConfig extends WebMvcConfigurationSupport {
 
 	@Bean
 	public ServletRegistrationBean simpleServlet() {
-		return new ServletRegistrationBean(new HelloServlet(), "/simple_servlet");// ServletName默认值为首字母小写，即myServlet
+		return new ServletRegistrationBean(new HelloServlet(), "/simple_servlet");
 	}
 
+	@Bean
+	public ServletRegistrationBean myDefaultServlet() {
+		return new ServletRegistrationBean(new MyDefaultServlet(), "/default/*");
+	}
+
+//	@Bean
+//	public ServletRegistrationBean dynamicJSP() {
+//		return new ServletRegistrationBean(new DynamicJSP(), "/jsp");
+//	}
+	
 	@Bean
 	public ServletRegistrationBean defaultServlet() {
 		ServletRegistrationBean registration = new ServletRegistrationBean(new DefaultServlet(), "*.gif", "*.ttf",
@@ -58,16 +71,18 @@ public class WebConfig extends WebMvcConfigurationSupport {
 		params.put("listings", "false");
 		registration.setInitParameters(params);
 		return registration;
-		// return new ServletRegistrationBean(new DefaultServlet(), "*.gif",
-		// "*.ttf","*.gif","*.woff","*.svg","*.js","*.jpg","*.html","*.css","*.png","*.mp4","*.m4a","*.ogg");//
-		// ServletName默认值为首字母小写，即myServlet
 	}
 
-//	@Override
-//	public void addViewControllers(ViewControllerRegistry registry) {
-//		// registry.addViewController("/").setViewName("home");
-//	}
+	@Bean
+	public FilterRegistrationBean someFilterRegistration() {
 
+	    FilterRegistrationBean registration = new FilterRegistrationBean();
+	    registration.setName("httpSessionFilter");
+	    registration.setFilter(new HttpSessionFilter());
+	    registration.addUrlPatterns("/*");
+	    return registration;
+	} 
+	
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

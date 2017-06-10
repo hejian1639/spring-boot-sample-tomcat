@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>service test</title>
+<!-- 引入 jQuery -->
+<script src="scripts/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	//等待dom元素加载完毕.
+
+	$(function() {
+
+		$("#throw_exception").click(function() {
+			$.ajax({
+				url : 'service/throwException',
+				contentType : "application/json",
+				cache : false,
+				type : "get",
+				async : true,
+				success : function(data, status, xhr) {
+					$("#output").text(JSON.stringify(data));
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+				},
+			});
+		});
+
+	});
+</script>
+</head>
+<body>
+	<button id="throw_exception">throw exception</button>
+	<p id="output"></p>
+</body>
+</html>

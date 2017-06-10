@@ -15,7 +15,7 @@ public class WebController {
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
-		return "pages/index.html";
+		return "static/pages/index.html";
 	}
 
 }
