@@ -35,7 +35,7 @@ import sample.tomcat.servlet.ContextStartListener;
 import sample.tomcat.servlet.DynamicJSP;
 import sample.tomcat.servlet.HelloServlet;
 import sample.tomcat.servlet.HttpSessionFilter;
-import sample.tomcat.servlet.MyDefaultServlet;
+//import sample.tomcat.servlet.DefaultServlet;
 
 @EnableWebMvc
 @ComponentScan(basePackages = { "sample.tomcat.web" })
@@ -54,14 +54,17 @@ public class WebConfig extends WebMvcConfigurationSupport {
 
 	@Bean
 	public ServletRegistrationBean myDefaultServlet() {
-		return new ServletRegistrationBean(new MyDefaultServlet(), "/default/*");
+		ServletRegistrationBean registration = new ServletRegistrationBean(new sample.tomcat.servlet.DefaultServlet(),
+				"/default/*");
+		registration.setName("myDefault");
+		return registration;
 	}
 
 	@Bean
 	public ServletRegistrationBean dynamicJSP() {
 		return new ServletRegistrationBean(new DynamicJSP(), "/jsp");
 	}
-	
+
 	@Bean
 	public ServletRegistrationBean defaultServlet() {
 		ServletRegistrationBean registration = new ServletRegistrationBean(new DefaultServlet(), "*.gif", "*.ttf",
@@ -77,13 +80,13 @@ public class WebConfig extends WebMvcConfigurationSupport {
 	@Bean
 	public FilterRegistrationBean someFilterRegistration() {
 
-	    FilterRegistrationBean registration = new FilterRegistrationBean();
-	    registration.setName("httpSessionFilter");
-	    registration.setFilter(new HttpSessionFilter());
-	    registration.addUrlPatterns("/*");
-	    return registration;
-	} 
-	
+		FilterRegistrationBean registration = new FilterRegistrationBean();
+		registration.setName("httpSessionFilter");
+		registration.setFilter(new HttpSessionFilter());
+		registration.addUrlPatterns("/*");
+		return registration;
+	}
+
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
@@ -91,16 +94,18 @@ public class WebConfig extends WebMvcConfigurationSupport {
 		return viewResolver;
 	}
 
-//	@Bean
-//	// Only used when running in embedded servlet
-//	public DispatcherServlet dispatcherServlet() {
-//		return new DispatcherServlet();
-//	}
-//
-//	@Override
-//	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-//		configurer.enable();
-//	}
-//
+	// @Bean
+	// // Only used when running in embedded servlet
+	// public DispatcherServlet dispatcherServlet() {
+	// return new DispatcherServlet();
+	// }
+	//
+	// @Override
+	// public void
+	// configureDefaultServletHandling(DefaultServletHandlerConfigurer
+	// configurer) {
+	// configurer.enable();
+	// }
+	//
 
 }
