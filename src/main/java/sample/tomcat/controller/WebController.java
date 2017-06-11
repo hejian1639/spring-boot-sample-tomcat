@@ -1,4 +1,4 @@
-package sample.tomcat.web;
+package sample.tomcat.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,4 +18,14 @@ public class WebController {
 		return "h5/pages/index.html";
 	}
 
+	@RequestMapping({ "/restful_test" })
+	public String restfulTest() {
+		return "jsp/restful.jsp";
+	}
+
+	@RequestMapping({ "/service_test" })
+	public String serviceTest() {
+		return "h5/service_test.html";
+	}
+	
 }
