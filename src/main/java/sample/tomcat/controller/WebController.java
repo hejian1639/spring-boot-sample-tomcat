@@ -23,6 +23,11 @@ public class WebController {
 		return "jsp/restful.jsp";
 	}
 
+	@RequestMapping({ "/jersey_service_test" })
+	public String jerseyServiceTest() {
+		return "h5/jersey_service_test.html";
+	}
+
 	@RequestMapping({ "/service_test" })
 	public String serviceTest() {
 		return "h5/service_test.html";
