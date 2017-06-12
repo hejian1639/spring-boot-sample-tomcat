@@ -22,6 +22,8 @@ import java.util.Map;
 import javax.servlet.ServletContextListener;
 
 import org.apache.catalina.servlets.DefaultServlet;
+import org.glassfish.jersey.servlet.ServletContainer;
+import org.glassfish.jersey.servlet.ServletProperties;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -31,6 +33,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+//import com.sun.jersey.spi.spring.container.servlet.SpringServlet;
+
 import sample.tomcat.servlet.ContextStartListener;
 import sample.tomcat.servlet.DynamicJSP;
 import sample.tomcat.servlet.HelloServlet;
@@ -38,7 +42,7 @@ import sample.tomcat.servlet.HttpSessionFilter;
 //import sample.tomcat.servlet.DefaultServlet;
 
 @EnableWebMvc
-@ComponentScan(basePackages = { "sample.tomcat.web" })
+@ComponentScan(basePackages = { "sample.tomcat.controller" })
 @Configuration
 public class WebConfig extends WebMvcConfigurationSupport {
 
@@ -76,6 +80,13 @@ public class WebConfig extends WebMvcConfigurationSupport {
 		registration.setInitParameters(params);
 		return registration;
 	}
+
+    @Bean
+    public ServletRegistrationBean jerseyServlet() {
+        ServletRegistrationBean registration = new ServletRegistrationBean(new ServletContainer(), "/jersey/*");
+        registration.addInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, JerseyConfig.class.getName());
+        return registration;
+    }
 
 	@Bean
 	public FilterRegistrationBean someFilterRegistration() {
