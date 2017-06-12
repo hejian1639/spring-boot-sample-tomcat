@@ -43,7 +43,7 @@ public class DynamicJSP extends HttpServlet {
 			jspc.execute();
 //			URL xUrl = new URI(getServletContext().getRealPath("/")+"page/").toURL();
 			File filePath = new File(getServletContext().getRealPath("/jsp/"));
-			URL xUrl = filePath.toURL();
+			URL xUrl = filePath.toURI().toURL();
 			URLClassLoader loader = new URLClassLoader(new URL[] { xUrl }, Thread.currentThread().getContextClassLoader());
 			Class<?> xClass = loader.loadClass("org.apache.jsp.Date_jsp");
 			request.setAttribute("msg", msg);

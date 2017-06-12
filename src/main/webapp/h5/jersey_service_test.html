@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>service test</title>
+<!-- 引入 jQuery -->
+<script src="h5/js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+	//等待dom元素加载完毕.
+
+	//test2
+	$(function() {
+
+/* 		$.ajaxSetup({
+			type : "GET",
+			xhrFields : {
+				withCredentials : true
+			},
+			crossDomain : true
+		});
+		$.ajaxSetup({
+			type : "POST",
+			xhrFields : {
+				withCredentials : true
+			},
+			crossDomain : true
+		});
+ */
+
+        $.ajax({
+            url : 'jersey/getQuery',
+            contentType:"application/json",
+            cache : false,
+            type : "get",
+            async : true,
+            success : function(data, status, xhr) {
+                        $("#output1").text("get query test: " + JSON.stringify(data));
+            },
+            error : function(jqXHR, textStatus, errorThrown) {
+            },
+            complete : function(xhr) {
+                var time = null, curDate = null;
+                // 获取响应头里的时间戳
+                time = xhr.getResponseHeader("Date");
+                console.log(xhr.getAllResponseHeaders())
+                curDate = new Date(time);
+                $("#time").html(
+                        "服务器时间是：" + curDate.getFullYear() + "-"
+                                + (curDate.getMonth() + 1) + "-"
+                                + curDate.getDate() + " " + curDate.getHours()
+                                + ":" + curDate.getMinutes() + ":"
+                                + curDate.getSeconds());
+            }
+        });
+		
+
+ 
+		$.ajax({
+			url : 'jersey/object',
+			data : JSON.stringify({
+				id : 1,
+				name : 'John',
+			}),
+			contentType : "application/json",
+			cache : false,
+			type : "post",
+			async : true,
+			success : function(data, status, xhr) {
+				$.ajax({
+					url : 'jersey/object/1',
+					cache : false,
+					type : "get",
+					async : true,
+					success : function(data, status, xhr) {
+						$("#output2").text(
+								"get object test: " + JSON.stringify(data));
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+					}
+				});
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+			},
+			complete : function(xhr) {
+			}
+		});
+       
+        
+	});
+	
+
+</script>
+</head>
+<body>
+	<p id="time"></p>
+	<p id="output1"></p>
+	<p id="output2"></p>
+	<p id="output3"></p>
+	<p id="output4"></p>
+	<p id="output5"></p>
+	<p id="output6"></p>
+	<p id="output7"></p>
+	<p id="output8"></p>
+</body>
+</html>
