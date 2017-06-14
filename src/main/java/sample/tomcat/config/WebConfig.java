@@ -16,22 +16,31 @@
 
 package sample.tomcat.config;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletContextListener;
+import javax.sql.DataSource;
 
 import org.apache.catalina.servlets.DefaultServlet;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.glassfish.jersey.servlet.ServletProperties;
+import org.h2.server.web.WebServlet;
+import org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import sample.tomcat.data.Account;
 
 //import com.sun.jersey.spi.spring.container.servlet.SpringServlet;
 
@@ -39,7 +48,6 @@ import sample.tomcat.servlet.ContextStartListener;
 import sample.tomcat.servlet.DynamicJSP;
 import sample.tomcat.servlet.HelloServlet;
 import sample.tomcat.servlet.HttpSessionFilter;
-//import sample.tomcat.servlet.DefaultServlet;
 
 @EnableWebMvc
 @ComponentScan(basePackages = { "sample.tomcat.controller" })
@@ -81,12 +89,12 @@ public class WebConfig extends WebMvcConfigurationSupport {
 		return registration;
 	}
 
-    @Bean
-    public ServletRegistrationBean jerseyServlet() {
-        ServletRegistrationBean registration = new ServletRegistrationBean(new ServletContainer(), "/jersey/*");
-        registration.addInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, JerseyConfig.class.getName());
-        return registration;
-    }
+	@Bean
+	public ServletRegistrationBean jerseyServlet() {
+		ServletRegistrationBean registration = new ServletRegistrationBean(new ServletContainer(), "/jersey/*");
+		registration.addInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, JerseyConfig.class.getName());
+		return registration;
+	}
 
 	@Bean
 	public FilterRegistrationBean someFilterRegistration() {
@@ -103,6 +111,44 @@ public class WebConfig extends WebMvcConfigurationSupport {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setPrefix("/");
 		return viewResolver;
+	}
+
+	@Bean
+	public DataSource dataSource() throws SQLException {
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("org.h2.Driver");
+		dataSource.setUrl("jdbc:h2:mem:test");
+		dataSource.setUsername("root");
+		dataSource.setPassword("");
+		// dataSource.setSchema("classpath:schema.sql");
+//		Connection connect = dataSource.getConnection();
+//		Statement statement = connect.createStatement();
+//		int ret = statement.executeUpdate(
+//				"create table city (id int primary key auto_increment, name varchar, state varchar, country varchar)");
+//
+//		System.out.println("ret = " + ret);
+//		// statement.execute("insert into city (name, state, country) values
+//		// ('San Francisco', 'CA', 'US')");
+//		// statement.close();
+//		connect.close();
+		return dataSource;
+	}
+
+	@Bean
+	ServletRegistrationBean h2servletRegistration() {
+		return new ServletRegistrationBean(new WebServlet(), "/h2-console/*");
+
+	}
+
+	@Bean
+	ConfigurationCustomizer mybatisConfigurationCustomizer() {
+		return new ConfigurationCustomizer() {
+
+			@Override
+			public void customize(org.apache.ibatis.session.Configuration conf) {
+				conf.getTypeAliasRegistry().registerAlias(Account.class);
+			}
+		};
 	}
 
 	// @Bean
