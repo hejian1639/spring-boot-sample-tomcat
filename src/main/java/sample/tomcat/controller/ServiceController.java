@@ -28,6 +28,12 @@ public class ServiceController {
 	@Resource
 	private MybatisService mybatisService;
 
+	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	@ResponseBody
+	public String getHello() {
+		return "Hello World";
+	}
+	
 	@RequestMapping(value = "/city/{state}", method = RequestMethod.GET)
 	@ResponseBody
 	public City getCity(@PathVariable final String state) {
