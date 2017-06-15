@@ -16,22 +16,18 @@
 
 package sample.tomcat;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.io.ByteArrayInputStream;
 import java.nio.charset.Charset;
 import java.util.zip.GZIPInputStream;
 
-import org.apache.coyote.AbstractProtocol;
-import org.apache.coyote.ProtocolHandler;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.embedded.tomcat.TomcatWebServer;
-import org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext;
-import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -40,8 +36,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.StreamUtils;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Basic integration tests for demo application.
@@ -57,12 +51,12 @@ public class SampleTomcatApplicationTests {
 	@Autowired
 	private TestRestTemplate restTemplate;
 
-	@Autowired
-	private ApplicationContext applicationContext;
+	// @Autowired
+	// private ApplicationContext applicationContext;
 
 	@Test
 	public void testHome() throws Exception {
-		ResponseEntity<String> entity = this.restTemplate.getForEntity("/", String.class);
+		ResponseEntity<String> entity = this.restTemplate.getForEntity("/service/hello", String.class);
 		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
 		assertThat(entity.getBody()).isEqualTo("Hello World");
 	}
@@ -72,25 +66,25 @@ public class SampleTomcatApplicationTests {
 		HttpHeaders requestHeaders = new HttpHeaders();
 		requestHeaders.set("Accept-Encoding", "gzip");
 		HttpEntity<?> requestEntity = new HttpEntity<>(requestHeaders);
-		ResponseEntity<byte[]> entity = this.restTemplate.exchange("/", HttpMethod.GET,
-				requestEntity, byte[].class);
+		ResponseEntity<byte[]> entity = this.restTemplate.exchange("/service/hello", HttpMethod.GET, requestEntity,
+				byte[].class);
 		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
-		try (GZIPInputStream inflater = new GZIPInputStream(
-				new ByteArrayInputStream(entity.getBody()))) {
-			assertThat(StreamUtils.copyToString(inflater, Charset.forName("UTF-8")))
-					.isEqualTo("Hello World");
+		try (GZIPInputStream inflater = new GZIPInputStream(new ByteArrayInputStream(entity.getBody()))) {
+			assertThat(StreamUtils.copyToString(inflater, Charset.forName("UTF-8"))).isEqualTo("Hello World");
 		}
 	}
 
-	@Test
-	public void testTimeout() throws Exception {
-		ServletWebServerApplicationContext context = (ServletWebServerApplicationContext) this.applicationContext;
-		TomcatWebServer embeddedServletContainer = (TomcatWebServer) context
-				.getWebServer();
-		ProtocolHandler protocolHandler = embeddedServletContainer.getTomcat()
-				.getConnector().getProtocolHandler();
-		int timeout = ((AbstractProtocol<?>) protocolHandler).getConnectionTimeout();
-		assertThat(timeout).isEqualTo(5000);
-	}
+	// @Test
+	// public void testTimeout() throws Exception {
+	// ServletWebServerApplicationContext context =
+	// (ServletWebServerApplicationContext) this.applicationContext;
+	// TomcatWebServer embeddedServletContainer = (TomcatWebServer) context
+	// .getWebServer();
+	// ProtocolHandler protocolHandler = embeddedServletContainer.getTomcat()
+	// .getConnector().getProtocolHandler();
+	// int timeout = ((AbstractProtocol<?>)
+	// protocolHandler).getConnectionTimeout();
+	// assertThat(timeout).isEqualTo(5000);
+	// }
 
 }
