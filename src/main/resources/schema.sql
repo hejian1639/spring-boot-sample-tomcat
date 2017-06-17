@@ -26,6 +26,11 @@ create table account (
 
 drop table if exists city;
 
-create table city (id int primary key auto_increment, name varchar, state varchar, country varchar);
+create table city (
+id int not null auto_increment, 
+name varchar(32), 
+state varchar(8), 
+country varchar(8),
+primary key (id)
+);
 
-insert into city (name, state, country) values ('San Francisco', 'CA', 'US');

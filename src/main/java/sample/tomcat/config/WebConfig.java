@@ -16,9 +16,7 @@
 
 package sample.tomcat.config;
 
-import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -116,10 +114,10 @@ public class WebConfig extends WebMvcConfigurationSupport {
 	@Bean
 	public DataSource dataSource() throws SQLException {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("org.h2.Driver");
-		dataSource.setUrl("jdbc:h2:mem:test");
+		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/spring_boot_test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false");
 		dataSource.setUsername("root");
-		dataSource.setPassword("");
+		dataSource.setPassword("1111");
 		// dataSource.setSchema("classpath:schema.sql");
 //		Connection connect = dataSource.getConnection();
 //		Statement statement = connect.createStatement();
