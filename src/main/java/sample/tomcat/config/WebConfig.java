@@ -39,9 +39,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import sample.tomcat.data.Account;
-
-//import com.sun.jersey.spi.spring.container.servlet.SpringServlet;
-
 import sample.tomcat.servlet.ContextStartListener;
 import sample.tomcat.servlet.DynamicJSP;
 import sample.tomcat.servlet.HelloServlet;
@@ -52,11 +49,28 @@ import sample.tomcat.servlet.HttpSessionFilter;
 @Configuration
 public class WebConfig extends WebMvcConfigurationSupport {
 
+
 	@Bean
 	protected ServletContextListener listener() {
 		return new ContextStartListener();
 	}
 
+//	@Bean
+//	protected WsContextListener wsContextListener() {
+//		return new WsContextListener();
+//	}
+
+//	@Override
+//	public void addInterceptors(InterceptorRegistry registry) {
+//		WebContentInterceptor webContentInterceptor = new WebContentInterceptor();
+//		webContentInterceptor.setCacheSeconds(0);
+//		webContentInterceptor.setUseExpiresHeader(true);
+//		webContentInterceptor.setUseCacheControlHeader(true);
+//		webContentInterceptor.setUseCacheControlNoStore(false);
+//		registry.addInterceptor(webContentInterceptor);
+//	}
+	
+	
 	@Bean
 	public ServletRegistrationBean simpleServlet() {
 		return new ServletRegistrationBean(new HelloServlet(), "/simple_servlet");

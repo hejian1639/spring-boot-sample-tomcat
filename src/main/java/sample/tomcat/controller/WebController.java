@@ -32,5 +32,10 @@ public class WebController {
 	public String serviceTest() {
 		return "h5/service_test.html";
 	}
+
+	@RequestMapping({ "/websocket_test" })
+	public String websocketTest() {
+		return "h5/echo.html";
+	}
 	
 }
