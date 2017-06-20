@@ -33,7 +33,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.util.StreamUtils;
 
@@ -45,14 +45,12 @@ import org.springframework.util.StreamUtils;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-@DirtiesContext
+@ActiveProfiles("test")
 public class SampleTomcatApplicationTests {
 
 	@Autowired
 	private TestRestTemplate restTemplate;
 
-	// @Autowired
-	// private ApplicationContext applicationContext;
 
 	@Test
 	public void testHome() throws Exception {
@@ -74,6 +72,7 @@ public class SampleTomcatApplicationTests {
 		}
 	}
 
+	
 	// @Test
 	// public void testTimeout() throws Exception {
 	// ServletWebServerApplicationContext context =

@@ -31,11 +31,9 @@ import org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import sample.tomcat.data.Account;
@@ -44,10 +42,10 @@ import sample.tomcat.servlet.DynamicJSP;
 import sample.tomcat.servlet.HelloServlet;
 import sample.tomcat.servlet.HttpSessionFilter;
 
-@EnableWebMvc
-@ComponentScan(basePackages = { "sample.tomcat.controller" })
+//@EnableWebMvc
+//@ComponentScan(basePackages = { "sample.tomcat.controller" })
 @Configuration
-public class WebConfig extends WebMvcConfigurationSupport {
+public class WebConfig /*extends WebMvcConfigurationSupport*/ {
 
 
 	@Bean
@@ -125,24 +123,16 @@ public class WebConfig extends WebMvcConfigurationSupport {
 		return viewResolver;
 	}
 
+	@Profile({ "dev", "prod" })
 	@Bean
 	public DataSource dataSource() throws SQLException {
+		System.out.println("dataSource");
+
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/spring_boot_test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false");
 		dataSource.setUsername("root");
-		dataSource.setPassword("1111");
-		// dataSource.setSchema("classpath:schema.sql");
-//		Connection connect = dataSource.getConnection();
-//		Statement statement = connect.createStatement();
-//		int ret = statement.executeUpdate(
-//				"create table city (id int primary key auto_increment, name varchar, state varchar, country varchar)");
-//
-//		System.out.println("ret = " + ret);
-//		// statement.execute("insert into city (name, state, country) values
-//		// ('San Francisco', 'CA', 'US')");
-//		// statement.close();
-//		connect.close();
+		dataSource.setPassword("UwtDQjgQ8E");
 		return dataSource;
 	}
 
