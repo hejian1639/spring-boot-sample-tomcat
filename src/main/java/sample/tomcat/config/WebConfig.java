@@ -37,6 +37,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import sample.tomcat.data.Account;
+import sample.tomcat.servlet.AnotationWsContextStartListener;
 import sample.tomcat.servlet.ContextStartListener;
 import sample.tomcat.servlet.DynamicJSP;
 import sample.tomcat.servlet.HelloServlet;
@@ -53,10 +54,12 @@ public class WebConfig /*extends WebMvcConfigurationSupport*/ {
 		return new ContextStartListener();
 	}
 
-//	@Bean
-//	protected WsContextListener wsContextListener() {
-//		return new WsContextListener();
-//	}
+	@Profile({ "dev" })
+	@Bean
+	protected AnotationWsContextStartListener anotationWsContextStartListener() {
+		System.out.println("anotationWsContextStartListener");
+		return new AnotationWsContextStartListener();
+	}
 
 //	@Override
 //	public void addInterceptors(InterceptorRegistry registry) {
