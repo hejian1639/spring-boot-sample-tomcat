@@ -7,9 +7,16 @@ import javax.websocket.server.ServerEndpointConfig;
 
 import org.apache.tomcat.websocket.server.Constants;
 import org.apache.tomcat.websocket.server.WsServerContainer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+
+import sample.tomcat.service.HelloWorldService;
 
 public class ContextStartListener implements ServletContextListener {
-
+	
+	@Autowired
+	private ApplicationContext context;
+	
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
 		System.out.println("contextDestroyed");
@@ -23,9 +30,9 @@ public class ContextStartListener implements ServletContextListener {
 				.getAttribute(Constants.SERVER_CONTAINER_SERVLET_CONTEXT_ATTRIBUTE);
 
 		try {
-			sc.addEndpoint(
-					ServerEndpointConfig.Builder.create(EchoEndpoint.class, "/websocket/echoProgrammatic").build());
-//			sc.addEndpoint(EchoAnnotation.class);
+			HelloWorldService service = (HelloWorldService) context.getBean("helloWorldService");
+	        System.out.println(service.getHelloMessage()); 
+			sc.addEndpoint(ServerEndpointConfig.Builder.create(EchoEndpoint.class, "/websocket/echoProgrammatic").build());
 		} catch (DeploymentException e) {
 			e.printStackTrace();
 		}
