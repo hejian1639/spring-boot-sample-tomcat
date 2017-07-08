@@ -20,7 +20,7 @@ public class WebController {
 
 	@RequestMapping({ "/restful_test" })
 	public String restfulTest() {
-		return "jsp/restful.jsp";
+		return "h5/restful.html";
 	}
 
 	@RequestMapping({ "/jersey_service_test" })

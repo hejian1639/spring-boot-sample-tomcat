@@ -27,6 +27,7 @@ import org.apache.catalina.servlets.DefaultServlet;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.glassfish.jersey.servlet.ServletProperties;
 import org.h2.server.web.WebServlet;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -71,6 +72,14 @@ public class WebConfig /*extends WebMvcConfigurationSupport*/ {
 //		registry.addInterceptor(webContentInterceptor);
 //	}
 	
+	
+	@Bean
+	public SqlSessionFactoryBean sqlSessionFactory() throws SQLException {
+		SqlSessionFactoryBean sqlSessionFactory=new SqlSessionFactoryBean();
+		sqlSessionFactory.setDataSource(dataSource());
+		sqlSessionFactory.setTypeAliasesPackage("sample.tomcat.data");
+		return sqlSessionFactory;
+	}
 	
 	@Bean
 	public ServletRegistrationBean simpleServlet() {
@@ -126,8 +135,7 @@ public class WebConfig /*extends WebMvcConfigurationSupport*/ {
 		return viewResolver;
 	}
 
-	@Profile({ "dev", "prod" })
-	@Bean
+
 	public DataSource dataSource() throws SQLException {
 		System.out.println("dataSource");
 
@@ -137,6 +145,12 @@ public class WebConfig /*extends WebMvcConfigurationSupport*/ {
 		dataSource.setUsername("root");
 		dataSource.setPassword("UwtDQjgQ8E");
 		return dataSource;
+	}
+	
+	@Profile({ "dev", "prod" })
+	@Bean
+	public DataSource dataSourceBean() throws SQLException {
+		return dataSource();
 	}
 
 	@Bean

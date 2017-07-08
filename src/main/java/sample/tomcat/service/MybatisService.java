@@ -60,4 +60,8 @@ public class MybatisService {
 		return cityMapper.findByState(state);
 	}
 
+	@Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
+	public void insertCity(City city) {
+		cityMapper.insert(city);
+	}
 }

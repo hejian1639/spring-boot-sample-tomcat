@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import sample.tomcat.data.Account;
 import sample.tomcat.data.City;
 import sample.tomcat.data.JsonObject;
 import sample.tomcat.data.Person;
+import sample.tomcat.service.AccountService;
 import sample.tomcat.service.MybatisService;
 
 @RestController
@@ -26,6 +29,9 @@ public class ServiceController {
 
 	@Resource
 	private MybatisService mybatisService;
+
+	@Resource
+	private AccountService accountService;
 
 	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	
@@ -37,6 +43,36 @@ public class ServiceController {
 	public City getCity(@PathVariable final String state) {
 		return mybatisService.getCity(state);
 	}
+
+	@RequestMapping(value = "/city", method = RequestMethod.POST, consumes = "application/json")
+	public void addCity(@RequestBody City city) {
+		 mybatisService.insertCity(city);
+	}
+	
+	@RequestMapping(value = "/account/{username}", method = RequestMethod.GET)
+	@ResponseBody
+	public Account getAccount(@PathVariable final String username) throws Exception {
+        System.out.println("get account request: " + username);
+		return accountService.getAccount(username);
+	}
+
+    @RequestMapping(value = "/account", method = RequestMethod.POST, consumes = "application/json")
+    @ResponseBody
+    public void postAccount(@RequestBody Account account) throws Exception {
+        System.out.println("insert account: " + account.getUsername());
+
+        accountService.insertAccount(account);
+        
+    }
+
+//    @RequestMapping(value = "/account/{username}", method = RequestMethod.DELETE)
+//    @ResponseBody
+//    public void deleteAccount(@PathVariable final String username) {
+//        System.out.println("delete account request: " + username);
+//
+//        accountService.deleteAccount(username);
+//        
+//    }
 	
 	@RequestMapping(value = "/object/{id}", method = RequestMethod.GET)
 	public JsonObject getObject(@PathVariable final int id) {

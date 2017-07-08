@@ -15,6 +15,7 @@
  */
 package sample.tomcat.mapper;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -30,4 +31,6 @@ public interface CityMapper {
 	@Select("select * from city where state = #{state}")
 	City findByState(@Param("state") String state);
 
+	@Insert("insert into city (name, state, country) values (#{name}, #{state}, #{country})")
+	void insert(City city);
 }
