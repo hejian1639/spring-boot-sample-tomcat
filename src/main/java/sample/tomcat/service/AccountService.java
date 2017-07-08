@@ -23,15 +23,15 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.apache.ibatis.datasource.unpooled.UnpooledDataSource;
 import org.apache.ibatis.mapping.Environment;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.defaults.DefaultSqlSessionFactory;
 import org.apache.ibatis.transaction.TransactionFactory;
-import org.mybatis.spring.transaction.SpringManagedTransactionFactory;
+import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Service;
 
 import sample.tomcat.data.Account;
@@ -48,12 +48,15 @@ public class AccountService {
 	DataSource dataSource() throws SQLException {
 		System.out.println("dataSource");
 
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setUrl(
-				"jdbc:mysql://localhost:3306/spring_boot_test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false");
-		dataSource.setUsername("root");
-		dataSource.setPassword("UwtDQjgQ8E");
+		UnpooledDataSource dataSource = new UnpooledDataSource("com.mysql.cj.jdbc.Driver", 
+				"jdbc:mysql://localhost:3306/spring_boot_test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false",
+				"root",
+				"UwtDQjgQ8E");
+//		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+//		dataSource.setUrl(
+//				"jdbc:mysql://localhost:3306/spring_boot_test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false");
+//		dataSource.setUsername("root");
+//		dataSource.setPassword("UwtDQjgQ8E");
 		return dataSource;
 	}
 
@@ -69,7 +72,7 @@ public class AccountService {
 				configuration.getTypeAliasRegistry().registerAliases(packageToScan, Object.class);
 			}
 		}
-		TransactionFactory transactionFactory = new SpringManagedTransactionFactory();
+		TransactionFactory transactionFactory = new JdbcTransactionFactory();
 		configuration.setEnvironment(
 				new Environment(AccountService.class.getSimpleName(), transactionFactory, dataSource()));
 
