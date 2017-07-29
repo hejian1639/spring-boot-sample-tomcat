@@ -5,6 +5,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.ws.rs.core.Context;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,10 +35,19 @@ public class ServiceController {
 	@Resource
 	private AccountService accountService;
 
-	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+//    @Context
+//    private HttpServletRequest request;
 	
+	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	public String getHello() {
 		return "Hello World";
+	}
+	
+	@RequestMapping(value = "/login/{username}/{password}", method = RequestMethod.GET)
+	public String login(@PathVariable final String username, @PathVariable final String password, HttpServletRequest request) throws Exception {
+        System.out.println("login request: " + username);
+        HttpSession session = request.getSession(true);
+        return session.getId();
 	}
 	
 	@RequestMapping(value = "/city/{state}", method = RequestMethod.GET)

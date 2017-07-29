@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>login</title>
+</head>
+<body>
+
+	username:
+	<input id="username" /> password:
+	<input id="pwd" />
+	<br />
+	<button id="login">login</button>
+	<div id="output"></div>
+
+
+
+	<script src="h5/js/jquery.js"></script>
+	<script src="h5/js/jquery.cookie.js"></script>
+
+	<script>
+		$("#login").click(function() {
+			$.ajax({
+				url : 'service/login'+'/'+$("#username").val()+'/'+$("#pwd").val(),
+				cache : false,
+				type : "get",
+				async : true,
+				success : function(data, status, xhr) {
+					$("#output").text(data);
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+				},
+			});
+		});
+	</script>
+
+</body>
+</html>

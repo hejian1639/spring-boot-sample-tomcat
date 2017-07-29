@@ -13,9 +13,19 @@ public class WebController {
 		return "index.html";
 	}
 
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+		return "h5/login.html";
+	}
+
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
 		return "h5/pages/index.html";
+	}
+
+	@RequestMapping({ "/date" })
+	public String date() {
+		return "jsp/Date.jsp";
 	}
 
 	@RequestMapping({ "/restful_test" })
