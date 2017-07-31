@@ -23,6 +23,12 @@ public class WebController {
 		return "h5/pages/index.html";
 	}
 
+	@RequestMapping(value = "/image", method = RequestMethod.GET)
+	public String image() {
+		return "h5/image.html";
+	}
+	
+	
 	@RequestMapping({ "/date" })
 	public String date() {
 		return "jsp/Date.jsp";
