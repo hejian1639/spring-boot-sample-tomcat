@@ -16,6 +16,7 @@
 
 package sample.tomcat.config;
 
+import java.nio.charset.Charset;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,12 +24,16 @@ import java.util.Map;
 import javax.servlet.ServletContextListener;
 import javax.sql.DataSource;
 
+import org.apache.catalina.connector.Connector;
 import org.apache.catalina.servlets.DefaultServlet;
+import org.apache.coyote.http11.Http11Nio2Protocol;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.glassfish.jersey.servlet.ServletProperties;
 import org.h2.server.web.WebServlet;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
+import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -43,12 +48,12 @@ import sample.tomcat.servlet.ContextStartListener;
 import sample.tomcat.servlet.DynamicJSP;
 import sample.tomcat.servlet.HelloServlet;
 import sample.tomcat.servlet.HttpSessionFilter;
+import sample.tomcat.servlet.ShineyueTomcatEmbeddedServletContainerFactory;
 
 //@EnableWebMvc
 //@ComponentScan(basePackages = { "sample.tomcat.controller" })
 @Configuration
-public class WebConfig /*extends WebMvcConfigurationSupport*/ {
-
+public class WebConfig /* extends WebMvcConfigurationSupport */ {
 
 	@Bean
 	protected ServletContextListener listener() {
@@ -62,25 +67,53 @@ public class WebConfig /*extends WebMvcConfigurationSupport*/ {
 		return new AnotationWsContextStartListener();
 	}
 
-//	@Override
-//	public void addInterceptors(InterceptorRegistry registry) {
-//		WebContentInterceptor webContentInterceptor = new WebContentInterceptor();
-//		webContentInterceptor.setCacheSeconds(0);
-//		webContentInterceptor.setUseExpiresHeader(true);
-//		webContentInterceptor.setUseCacheControlHeader(true);
-//		webContentInterceptor.setUseCacheControlNoStore(false);
-//		registry.addInterceptor(webContentInterceptor);
+	// @Override
+	// public void addInterceptors(InterceptorRegistry registry) {
+	// WebContentInterceptor webContentInterceptor = new
+	// WebContentInterceptor();
+	// webContentInterceptor.setCacheSeconds(0);
+	// webContentInterceptor.setUseExpiresHeader(true);
+	// webContentInterceptor.setUseCacheControlHeader(true);
+	// webContentInterceptor.setUseCacheControlNoStore(false);
+	// registry.addInterceptor(webContentInterceptor);
+	// }
+
+//	@Bean
+//	public EmbeddedServletContainerFactory servletContainer() {
+//		TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory();
+//		tomcat.setUriEncoding(Charset.forName("UTF-8"));
+//		tomcat.addAdditionalTomcatConnectors(createNioConnector());
+//		return tomcat;
 //	}
-	
-	
+//
+	Connector createNioConnector() {
+		Connector connector = new Connector("org.apache.coyote.http11.Http11Nio2Protocol");
+		Http11Nio2Protocol protocol = (Http11Nio2Protocol) connector.getProtocolHandler();
+		protocol.setConnectionTimeout(200);
+		protocol.setMaxThreads(5);
+		protocol.setMaxConnections(1000);
+		connector.setScheme("http");
+		connector.setPort(8015);// 自定义的
+		connector.setRedirectPort(8443);
+
+		return connector;
+	}
+
+	@Bean
+	public EmbeddedServletContainerFactory servletContainer() {
+		ShineyueTomcatEmbeddedServletContainerFactory tomcat = new ShineyueTomcatEmbeddedServletContainerFactory();
+		tomcat.setUriEncoding(Charset.forName("UTF-8"));
+		return tomcat;
+	}
+
 	@Bean
 	public SqlSessionFactoryBean sqlSessionFactory() throws SQLException {
-		SqlSessionFactoryBean sqlSessionFactory=new SqlSessionFactoryBean();
+		SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
 		sqlSessionFactory.setDataSource(dataSource());
 		sqlSessionFactory.setTypeAliasesPackage("sample.tomcat.data");
 		return sqlSessionFactory;
 	}
-	
+
 	@Bean
 	public ServletRegistrationBean simpleServlet() {
 		return new ServletRegistrationBean(new HelloServlet(), "/simple_servlet");
@@ -135,18 +168,18 @@ public class WebConfig /*extends WebMvcConfigurationSupport*/ {
 		return viewResolver;
 	}
 
-
 	public DataSource dataSource() throws SQLException {
 		System.out.println("dataSource");
 
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/spring_boot_test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false");
+		dataSource.setUrl(
+				"jdbc:mysql://localhost:3306/spring_boot_test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false");
 		dataSource.setUsername("root");
 		dataSource.setPassword("UwtDQjgQ8E");
 		return dataSource;
 	}
-	
+
 	@Profile({ "dev", "prod" })
 	@Bean
 	public DataSource dataSourceBean() throws SQLException {

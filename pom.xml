@@ -31,6 +31,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<version>1.5.3.RELEASE</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -71,6 +72,7 @@
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-jasper</artifactId>
 			<version>7.0.75</version>
+			<scope>provided</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.ant/ant -->
 		<dependency>
@@ -94,7 +96,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>6.0.6</version>
 		</dependency>
-		<dependency>
+		<dependency> 
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<version>1.5.3.RELEASE</version>
@@ -131,39 +133,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<profiles>
-		<profile>
-			<id>tomcat</id>
-			<dependencies>
-				<dependency>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>
-					<version>1.5.3.RELEASE</version>
-					<scope>provided</scope>
-				</dependency>
-			</dependencies>
-		</profile>
-		<profile>
-			<id>jetty</id>
-			<dependencies>
-				<dependency>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-jetty</artifactId>
-					<version>1.5.3.RELEASE</version>
-					<scope>provided</scope>
-				</dependency>
-			</dependencies>
-		</profile>
-		<profile>
-			<id>undertow</id>
-			<dependencies>
-				<dependency>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-undertow</artifactId>
-					<version>1.5.3.RELEASE</version>
-					<scope>provided</scope>
-				</dependency>
-			</dependencies>
-		</profile>
-	</profiles>
 </project>
