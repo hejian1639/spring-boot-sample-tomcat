@@ -1,0 +1,133 @@
+/*==========================
+Framework7 Color Themes
+==========================*/
+.color-red {
+  color: #ff3b30;
+}
+.list-block .item-link.list-button.color-red,
+.tabbar a.active.color-red,
+a.color-red {
+  color: #ff3b30;
+}
+.label-switch input[type="checkbox"]:checked + .checkbox.color-red,
+.label-switch.color-red input[type="checkbox"]:checked + .checkbox {
+  background-color: #ff3b30;
+}
+.color-red.button:not(.button-fill),
+.color-red.buttons-row .button,
+.theme-red .button:not(.button-fill) {
+  border-color: #ff3b30;
+}
+html:not(.watch-active-state) .color-red.button:not(.button-fill):active,
+html:not(.watch-active-state) .color-red.buttons-row .button:active,
+html:not(.watch-active-state) .theme-red .button:not(.button-fill):active,
+.color-red.button:not(.button-fill).active-state,
+.color-red.buttons-row .button.active-state,
+.theme-red .button:not(.button-fill).active-state {
+  background-color: rgba(255, 59, 48, 0.15);
+}
+.color-red.button:not(.button-fill).active,
+.color-red.buttons-row .button.active,
+.theme-red .button:not(.button-fill).active {
+  background-color: #ff3b30;
+  color: #fff;
+}
+.theme-red .button.button-fill,
+.button.button-fill.color-red {
+  background: #ff3b30;
+  color: #fff;
+}
+.progressbar.color-red span,
+.progressbar.theme-red span,
+.theme-red .progressbar span,
+.progressbar.bg-red span {
+  background-color: #ff3b30;
+}
+.progressbar-infinite.color-red:before,
+.progressbar-infinite.theme-red:before,
+.theme-red .progressbar-infinite:before,
+.progressbar-infinite.bg-red:before {
+  background-color: #ff3b30;
+}
+.color-red i.icon-jmui,
+.theme-red i.icon-jmui,
+i.icon-jmui.color-red,
+i.icon-jmui.theme-red {
+  color: #ff3b30;
+}
+i.icon-jmui-next.color-red,
+i.icon-jmui-next.theme-red,
+.theme-red i.icon-jmui-next {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2015%2015'%3E%3Cg%3E%3Cpath%20fill%3D'%23ff3b30'%20d%3D'M1%2C1.6l11.8%2C5.8L1%2C13.4V1.6%20M0%2C0v15l15-7.6L0%2C0L0%2C0z'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+i.icon-jmui-prev.color-red,
+i.icon-jmui-prev.theme-red,
+.theme-red i.icon-jmui-prev {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2015%2015'%3E%3Cg%3E%3Cpath%20fill%3D'%23ff3b30'%20d%3D'M14%2C1.6v11.8L2.2%2C7.6L14%2C1.6%20M15%2C0L0%2C7.6L15%2C15V0L15%2C0z'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+i.icon-jmui-back.color-red,
+i.icon-jmui-back.theme-red,
+.theme-red i.icon-jmui-back {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2012%2020'%3E%3Cpath%20d%3D'M10%2C0l2%2C2l-8%2C8l8%2C8l-2%2C2L0%2C10L10%2C0z'%20fill%3D'%23ff3b30'%2F%3E%3C%2Fsvg%3E");
+}
+i.icon-jmui-forward.color-red,
+i.icon-jmui-forward.theme-red,
+.theme-red i.icon-jmui-forward {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2012%2020'%3E%3Cpath%20d%3D'M2%2C20l-2-2l8-8L0%2C2l2-2l10%2C10L2%2C20z'%20fill%3D'%23ff3b30'%2F%3E%3C%2Fsvg%3E");
+}
+.theme-red a,
+.theme-red .item-link.list-button {
+  color: #ff3b30;
+}
+.theme-red .tabbar a,
+.tabbar.theme-red a,
+.theme-red .tabbar a i,
+.tabbar.theme-red a i {
+  color: inherit;
+}
+.theme-red .tabbar a.active,
+.tabbar.theme-red a.active,
+.theme-red .tabbar a.active i,
+.tabbar.theme-red a.active i {
+  color: #ff3b30;
+}
+.theme-red .range-slider input[type="range"]::-webkit-slider-thumb:before,
+.range-slider.theme-red input[type="range"]::-webkit-slider-thumb:before {
+  background-color: #ff3b30;
+}
+.theme-red .range-slider input[type="range"]::-ms-fill-lower,
+.range-slider.theme-red input[type="range"]::-ms-fill-lower {
+  background-color: #ff3b30;
+}
+.theme-red label.label-checkbox input[type="checkbox"]:checked + .item-media i.icon-jmui-form-checkbox,
+.theme-red label.label-checkbox input[type="radio"]:checked + .item-media i.icon-jmui-form-checkbox {
+  background-color: #ff3b30;
+}
+.theme-red label.label-radio input[type="checkbox"]:checked ~ .item-inner,
+.theme-red label.label-radio input[type="radio"]:checked ~ .item-inner {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2013%2010'%3E%3Cpolygon%20fill%3D'%23ff3b30'%20points%3D'11.6%2C0%204.4%2C7.2%201.4%2C4.2%200%2C5.6%204.4%2C10%204.4%2C10%204.4%2C10%2013%2C1.4%20'%2F%3E%3C%2Fsvg%3E");
+}
+.theme-red .picker-calendar-day.picker-calendar-day-selected span {
+  background-color: #ff3b30 !important;
+}
+.bg-red,
+.button.button-fill.bg-red,
+a.bg-red {
+  background-color: #ff3b30;
+}
+.border-red {
+  border-color: #ff3b30;
+}
+.list-block .border-red.item-inner:after,
+.list-block ul.border-red:after,
+.border-red:after,
+.list-block .border-red.item-inner:before,
+.list-block ul.border-red:before,
+.border-red:before {
+  background-color: #ff3b30;
+}
+.badge.color-red,
+.badge.theme-red {
+  background-color: #ff3b30;
+  color: #fff;
+}

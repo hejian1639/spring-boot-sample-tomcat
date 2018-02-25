@@ -1,0 +1,133 @@
+/*==========================
+Framework7 Color Themes
+==========================*/
+.color-yellow {
+  color: #ffcc00;
+}
+.list-block .item-link.list-button.color-yellow,
+.tabbar a.active.color-yellow,
+a.color-yellow {
+  color: #ffcc00;
+}
+.label-switch input[type="checkbox"]:checked + .checkbox.color-yellow,
+.label-switch.color-yellow input[type="checkbox"]:checked + .checkbox {
+  background-color: #ffcc00;
+}
+.color-yellow.button:not(.button-fill),
+.color-yellow.buttons-row .button,
+.theme-yellow .button:not(.button-fill) {
+  border-color: #ffcc00;
+}
+html:not(.watch-active-state) .color-yellow.button:not(.button-fill):active,
+html:not(.watch-active-state) .color-yellow.buttons-row .button:active,
+html:not(.watch-active-state) .theme-yellow .button:not(.button-fill):active,
+.color-yellow.button:not(.button-fill).active-state,
+.color-yellow.buttons-row .button.active-state,
+.theme-yellow .button:not(.button-fill).active-state {
+  background-color: rgba(255, 204, 0, 0.15);
+}
+.color-yellow.button:not(.button-fill).active,
+.color-yellow.buttons-row .button.active,
+.theme-yellow .button:not(.button-fill).active {
+  background-color: #ffcc00;
+  color: #fff;
+}
+.theme-yellow .button.button-fill,
+.button.button-fill.color-yellow {
+  background: #ffcc00;
+  color: #fff;
+}
+.progressbar.color-yellow span,
+.progressbar.theme-yellow span,
+.theme-yellow .progressbar span,
+.progressbar.bg-yellow span {
+  background-color: #ffcc00;
+}
+.progressbar-infinite.color-yellow:before,
+.progressbar-infinite.theme-yellow:before,
+.theme-yellow .progressbar-infinite:before,
+.progressbar-infinite.bg-yellow:before {
+  background-color: #ffcc00;
+}
+.color-yellow i.icon-jmui,
+.theme-yellow i.icon-jmui,
+i.icon-jmui.color-yellow,
+i.icon-jmui.theme-yellow {
+  color: #ffcc00;
+}
+i.icon-jmui-next.color-yellow,
+i.icon-jmui-next.theme-yellow,
+.theme-yellow i.icon-jmui-next {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2015%2015'%3E%3Cg%3E%3Cpath%20fill%3D'%23ffcc00'%20d%3D'M1%2C1.6l11.8%2C5.8L1%2C13.4V1.6%20M0%2C0v15l15-7.6L0%2C0L0%2C0z'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+i.icon-jmui-prev.color-yellow,
+i.icon-jmui-prev.theme-yellow,
+.theme-yellow i.icon-jmui-prev {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2015%2015'%3E%3Cg%3E%3Cpath%20fill%3D'%23ffcc00'%20d%3D'M14%2C1.6v11.8L2.2%2C7.6L14%2C1.6%20M15%2C0L0%2C7.6L15%2C15V0L15%2C0z'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+i.icon-jmui-back.color-yellow,
+i.icon-jmui-back.theme-yellow,
+.theme-yellow i.icon-jmui-back {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2012%2020'%3E%3Cpath%20d%3D'M10%2C0l2%2C2l-8%2C8l8%2C8l-2%2C2L0%2C10L10%2C0z'%20fill%3D'%23ffcc00'%2F%3E%3C%2Fsvg%3E");
+}
+i.icon-jmui-forward.color-yellow,
+i.icon-jmui-forward.theme-yellow,
+.theme-yellow i.icon-jmui-forward {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2012%2020'%3E%3Cpath%20d%3D'M2%2C20l-2-2l8-8L0%2C2l2-2l10%2C10L2%2C20z'%20fill%3D'%23ffcc00'%2F%3E%3C%2Fsvg%3E");
+}
+.theme-yellow a,
+.theme-yellow .item-link.list-button {
+  color: #ffcc00;
+}
+.theme-yellow .tabbar a,
+.tabbar.theme-yellow a,
+.theme-yellow .tabbar a i,
+.tabbar.theme-yellow a i {
+  color: inherit;
+}
+.theme-yellow .tabbar a.active,
+.tabbar.theme-yellow a.active,
+.theme-yellow .tabbar a.active i,
+.tabbar.theme-yellow a.active i {
+  color: #ffcc00;
+}
+.theme-yellow .range-slider input[type="range"]::-webkit-slider-thumb:before,
+.range-slider.theme-yellow input[type="range"]::-webkit-slider-thumb:before {
+  background-color: #ffcc00;
+}
+.theme-yellow .range-slider input[type="range"]::-ms-fill-lower,
+.range-slider.theme-yellow input[type="range"]::-ms-fill-lower {
+  background-color: #ffcc00;
+}
+.theme-yellow label.label-checkbox input[type="checkbox"]:checked + .item-media i.icon-jmui-form-checkbox,
+.theme-yellow label.label-checkbox input[type="radio"]:checked + .item-media i.icon-jmui-form-checkbox {
+  background-color: #ffcc00;
+}
+.theme-yellow label.label-radio input[type="checkbox"]:checked ~ .item-inner,
+.theme-yellow label.label-radio input[type="radio"]:checked ~ .item-inner {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2013%2010'%3E%3Cpolygon%20fill%3D'%23ffcc00'%20points%3D'11.6%2C0%204.4%2C7.2%201.4%2C4.2%200%2C5.6%204.4%2C10%204.4%2C10%204.4%2C10%2013%2C1.4%20'%2F%3E%3C%2Fsvg%3E");
+}
+.theme-yellow .picker-calendar-day.picker-calendar-day-selected span {
+  background-color: #ffcc00 !important;
+}
+.bg-yellow,
+.button.button-fill.bg-yellow,
+a.bg-yellow {
+  background-color: #ffcc00;
+}
+.border-yellow {
+  border-color: #ffcc00;
+}
+.list-block .border-yellow.item-inner:after,
+.list-block ul.border-yellow:after,
+.border-yellow:after,
+.list-block .border-yellow.item-inner:before,
+.list-block ul.border-yellow:before,
+.border-yellow:before {
+  background-color: #ffcc00;
+}
+.badge.color-yellow,
+.badge.theme-yellow {
+  background-color: #ffcc00;
+  color: #fff;
+}

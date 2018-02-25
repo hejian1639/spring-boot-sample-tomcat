@@ -54,4 +54,9 @@ public class WebController {
 		return "h5/echo.html";
 	}
 	
+	@RequestMapping(value = "/react_demo/**", method = RequestMethod.GET)
+	public String react() {
+		return "react_demo/index.html";
+	}
+
 }

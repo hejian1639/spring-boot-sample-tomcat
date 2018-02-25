@@ -1,0 +1,133 @@
+/*==========================
+Framework7 Color Themes
+==========================*/
+.color-black {
+  color: #000000;
+}
+.list-block .item-link.list-button.color-black,
+.tabbar a.active.color-black,
+a.color-black {
+  color: #000000;
+}
+.label-switch input[type="checkbox"]:checked + .checkbox.color-black,
+.label-switch.color-black input[type="checkbox"]:checked + .checkbox {
+  background-color: #000000;
+}
+.color-black.button:not(.button-fill),
+.color-black.buttons-row .button,
+.theme-black .button:not(.button-fill) {
+  border-color: #000000;
+}
+html:not(.watch-active-state) .color-black.button:not(.button-fill):active,
+html:not(.watch-active-state) .color-black.buttons-row .button:active,
+html:not(.watch-active-state) .theme-black .button:not(.button-fill):active,
+.color-black.button:not(.button-fill).active-state,
+.color-black.buttons-row .button.active-state,
+.theme-black .button:not(.button-fill).active-state {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.color-black.button:not(.button-fill).active,
+.color-black.buttons-row .button.active,
+.theme-black .button:not(.button-fill).active {
+  background-color: #000000;
+  color: #fff;
+}
+.theme-black .button.button-fill,
+.button.button-fill.color-black {
+  background: #000000;
+  color: #fff;
+}
+.progressbar.color-black span,
+.progressbar.theme-black span,
+.theme-black .progressbar span,
+.progressbar.bg-black span {
+  background-color: #000000;
+}
+.progressbar-infinite.color-black:before,
+.progressbar-infinite.theme-black:before,
+.theme-black .progressbar-infinite:before,
+.progressbar-infinite.bg-black:before {
+  background-color: #000000;
+}
+.color-black i.icon-jmui,
+.theme-black i.icon-jmui,
+i.icon-jmui.color-black,
+i.icon-jmui.theme-black {
+  color: #000000;
+}
+i.icon-jmui-next.color-black,
+i.icon-jmui-next.theme-black,
+.theme-black i.icon-jmui-next {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2015%2015'%3E%3Cg%3E%3Cpath%20fill%3D'%23000000'%20d%3D'M1%2C1.6l11.8%2C5.8L1%2C13.4V1.6%20M0%2C0v15l15-7.6L0%2C0L0%2C0z'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+i.icon-jmui-prev.color-black,
+i.icon-jmui-prev.theme-black,
+.theme-black i.icon-jmui-prev {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2015%2015'%3E%3Cg%3E%3Cpath%20fill%3D'%23000000'%20d%3D'M14%2C1.6v11.8L2.2%2C7.6L14%2C1.6%20M15%2C0L0%2C7.6L15%2C15V0L15%2C0z'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+i.icon-jmui-back.color-black,
+i.icon-jmui-back.theme-black,
+.theme-black i.icon-jmui-back {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2012%2020'%3E%3Cpath%20d%3D'M10%2C0l2%2C2l-8%2C8l8%2C8l-2%2C2L0%2C10L10%2C0z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E");
+}
+i.icon-jmui-forward.color-black,
+i.icon-jmui-forward.theme-black,
+.theme-black i.icon-jmui-forward {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2012%2020'%3E%3Cpath%20d%3D'M2%2C20l-2-2l8-8L0%2C2l2-2l10%2C10L2%2C20z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E");
+}
+.theme-black a,
+.theme-black .item-link.list-button {
+  color: #000000;
+}
+.theme-black .tabbar a,
+.tabbar.theme-black a,
+.theme-black .tabbar a i,
+.tabbar.theme-black a i {
+  color: inherit;
+}
+.theme-black .tabbar a.active,
+.tabbar.theme-black a.active,
+.theme-black .tabbar a.active i,
+.tabbar.theme-black a.active i {
+  color: #000000;
+}
+.theme-black .range-slider input[type="range"]::-webkit-slider-thumb:before,
+.range-slider.theme-black input[type="range"]::-webkit-slider-thumb:before {
+  background-color: #000000;
+}
+.theme-black .range-slider input[type="range"]::-ms-fill-lower,
+.range-slider.theme-black input[type="range"]::-ms-fill-lower {
+  background-color: #000000;
+}
+.theme-black label.label-checkbox input[type="checkbox"]:checked + .item-media i.icon-jmui-form-checkbox,
+.theme-black label.label-checkbox input[type="radio"]:checked + .item-media i.icon-jmui-form-checkbox {
+  background-color: #000000;
+}
+.theme-black label.label-radio input[type="checkbox"]:checked ~ .item-inner,
+.theme-black label.label-radio input[type="radio"]:checked ~ .item-inner {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2013%2010'%3E%3Cpolygon%20fill%3D'%23000000'%20points%3D'11.6%2C0%204.4%2C7.2%201.4%2C4.2%200%2C5.6%204.4%2C10%204.4%2C10%204.4%2C10%2013%2C1.4%20'%2F%3E%3C%2Fsvg%3E");
+}
+.theme-black .picker-calendar-day.picker-calendar-day-selected span {
+  background-color: #000000 !important;
+}
+.bg-black,
+.button.button-fill.bg-black,
+a.bg-black {
+  background-color: #000000;
+}
+.border-black {
+  border-color: #000000;
+}
+.list-block .border-black.item-inner:after,
+.list-block ul.border-black:after,
+.border-black:after,
+.list-block .border-black.item-inner:before,
+.list-block ul.border-black:before,
+.border-black:before {
+  background-color: #000000;
+}
+.badge.color-black,
+.badge.theme-black {
+  background-color: #000000;
+  color: #fff;
+}

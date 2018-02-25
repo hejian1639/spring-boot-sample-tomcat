@@ -1,0 +1,133 @@
+/*==========================
+Framework7 Color Themes
+==========================*/
+.color-pink {
+  color: #ff2d55;
+}
+.list-block .item-link.list-button.color-pink,
+.tabbar a.active.color-pink,
+a.color-pink {
+  color: #ff2d55;
+}
+.label-switch input[type="checkbox"]:checked + .checkbox.color-pink,
+.label-switch.color-pink input[type="checkbox"]:checked + .checkbox {
+  background-color: #ff2d55;
+}
+.color-pink.button:not(.button-fill),
+.color-pink.buttons-row .button,
+.theme-pink .button:not(.button-fill) {
+  border-color: #ff2d55;
+}
+html:not(.watch-active-state) .color-pink.button:not(.button-fill):active,
+html:not(.watch-active-state) .color-pink.buttons-row .button:active,
+html:not(.watch-active-state) .theme-pink .button:not(.button-fill):active,
+.color-pink.button:not(.button-fill).active-state,
+.color-pink.buttons-row .button.active-state,
+.theme-pink .button:not(.button-fill).active-state {
+  background-color: rgba(255, 45, 85, 0.15);
+}
+.color-pink.button:not(.button-fill).active,
+.color-pink.buttons-row .button.active,
+.theme-pink .button:not(.button-fill).active {
+  background-color: #ff2d55;
+  color: #fff;
+}
+.theme-pink .button.button-fill,
+.button.button-fill.color-pink {
+  background: #ff2d55;
+  color: #fff;
+}
+.progressbar.color-pink span,
+.progressbar.theme-pink span,
+.theme-pink .progressbar span,
+.progressbar.bg-pink span {
+  background-color: #ff2d55;
+}
+.progressbar-infinite.color-pink:before,
+.progressbar-infinite.theme-pink:before,
+.theme-pink .progressbar-infinite:before,
+.progressbar-infinite.bg-pink:before {
+  background-color: #ff2d55;
+}
+.color-pink i.icon-jmui,
+.theme-pink i.icon-jmui,
+i.icon-jmui.color-pink,
+i.icon-jmui.theme-pink {
+  color: #ff2d55;
+}
+i.icon-jmui-next.color-pink,
+i.icon-jmui-next.theme-pink,
+.theme-pink i.icon-jmui-next {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2015%2015'%3E%3Cg%3E%3Cpath%20fill%3D'%23ff2d55'%20d%3D'M1%2C1.6l11.8%2C5.8L1%2C13.4V1.6%20M0%2C0v15l15-7.6L0%2C0L0%2C0z'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+i.icon-jmui-prev.color-pink,
+i.icon-jmui-prev.theme-pink,
+.theme-pink i.icon-jmui-prev {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2015%2015'%3E%3Cg%3E%3Cpath%20fill%3D'%23ff2d55'%20d%3D'M14%2C1.6v11.8L2.2%2C7.6L14%2C1.6%20M15%2C0L0%2C7.6L15%2C15V0L15%2C0z'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+i.icon-jmui-back.color-pink,
+i.icon-jmui-back.theme-pink,
+.theme-pink i.icon-jmui-back {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2012%2020'%3E%3Cpath%20d%3D'M10%2C0l2%2C2l-8%2C8l8%2C8l-2%2C2L0%2C10L10%2C0z'%20fill%3D'%23ff2d55'%2F%3E%3C%2Fsvg%3E");
+}
+i.icon-jmui-forward.color-pink,
+i.icon-jmui-forward.theme-pink,
+.theme-pink i.icon-jmui-forward {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2012%2020'%3E%3Cpath%20d%3D'M2%2C20l-2-2l8-8L0%2C2l2-2l10%2C10L2%2C20z'%20fill%3D'%23ff2d55'%2F%3E%3C%2Fsvg%3E");
+}
+.theme-pink a,
+.theme-pink .item-link.list-button {
+  color: #ff2d55;
+}
+.theme-pink .tabbar a,
+.tabbar.theme-pink a,
+.theme-pink .tabbar a i,
+.tabbar.theme-pink a i {
+  color: inherit;
+}
+.theme-pink .tabbar a.active,
+.tabbar.theme-pink a.active,
+.theme-pink .tabbar a.active i,
+.tabbar.theme-pink a.active i {
+  color: #ff2d55;
+}
+.theme-pink .range-slider input[type="range"]::-webkit-slider-thumb:before,
+.range-slider.theme-pink input[type="range"]::-webkit-slider-thumb:before {
+  background-color: #ff2d55;
+}
+.theme-pink .range-slider input[type="range"]::-ms-fill-lower,
+.range-slider.theme-pink input[type="range"]::-ms-fill-lower {
+  background-color: #ff2d55;
+}
+.theme-pink label.label-checkbox input[type="checkbox"]:checked + .item-media i.icon-jmui-form-checkbox,
+.theme-pink label.label-checkbox input[type="radio"]:checked + .item-media i.icon-jmui-form-checkbox {
+  background-color: #ff2d55;
+}
+.theme-pink label.label-radio input[type="checkbox"]:checked ~ .item-inner,
+.theme-pink label.label-radio input[type="radio"]:checked ~ .item-inner {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2013%2010'%3E%3Cpolygon%20fill%3D'%23ff2d55'%20points%3D'11.6%2C0%204.4%2C7.2%201.4%2C4.2%200%2C5.6%204.4%2C10%204.4%2C10%204.4%2C10%2013%2C1.4%20'%2F%3E%3C%2Fsvg%3E");
+}
+.theme-pink .picker-calendar-day.picker-calendar-day-selected span {
+  background-color: #ff2d55 !important;
+}
+.bg-pink,
+.button.button-fill.bg-pink,
+a.bg-pink {
+  background-color: #ff2d55;
+}
+.border-pink {
+  border-color: #ff2d55;
+}
+.list-block .border-pink.item-inner:after,
+.list-block ul.border-pink:after,
+.border-pink:after,
+.list-block .border-pink.item-inner:before,
+.list-block ul.border-pink:before,
+.border-pink:before {
+  background-color: #ff2d55;
+}
+.badge.color-pink,
+.badge.theme-pink {
+  background-color: #ff2d55;
+  color: #fff;
+}
