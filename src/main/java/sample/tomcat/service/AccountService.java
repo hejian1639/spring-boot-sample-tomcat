@@ -45,18 +45,22 @@ public class AccountService {
 	private AccountMapper accountMapper;
 	private SqlSession session = null;
 
-	DataSource dataSource() throws SQLException {
-		System.out.println("dataSource");
+	AccountService() throws Exception{
+		setupSession();
 
-		UnpooledDataSource dataSource = new UnpooledDataSource("com.mysql.cj.jdbc.Driver", 
-				"jdbc:mysql://localhost:3306/spring_boot_test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false",
-				"root",
-				"UwtDQjgQ8E");
-//		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-//		dataSource.setUrl(
-//				"jdbc:mysql://localhost:3306/spring_boot_test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false");
-//		dataSource.setUsername("root");
-//		dataSource.setPassword("UwtDQjgQ8E");
+	}
+	
+	DataSource dataSource() throws SQLException {
+		System.out.println("AccountService.dataSource");
+
+//		UnpooledDataSource dataSource = new UnpooledDataSource("com.mysql.cj.jdbc.Driver", 
+//				"jdbc:mysql://localhost:3306/spring_boot_test?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false",
+//				"root",
+//				"UwtDQjgQ8E");
+		UnpooledDataSource dataSource = new UnpooledDataSource("org.h2.Driver", 
+				"jdbc:h2:file:~/test",
+				"sa",
+				"");
 		return dataSource;
 	}
 
@@ -86,7 +90,8 @@ public class AccountService {
 			sqlSessionFactory = buildSqlSessionFactory();
 		}
 		if (session == null) {
-			session = sqlSessionFactory.openSession();
+			session = new SqlSessionTemplate(sqlSessionFactory);
+//			session = sqlSessionFactory.openSession();
 		}
 
 		if (accountMapper == null) {
@@ -97,12 +102,10 @@ public class AccountService {
 	}
 
 	public Account getAccount(String username) throws Exception {
-		setupSession();
 		return accountMapper.getAccountByUsername(username);
 	}
 
 	public void insertAccount(Account account) throws Exception {
-		setupSession();
 
 		try {
 			accountMapper.insertAccount(account);
@@ -115,7 +118,6 @@ public class AccountService {
 	}
 
 	public void updateAccount(Account account) throws Exception {
-		setupSession();
 
 		try {
 			accountMapper.updateAccount(account);
